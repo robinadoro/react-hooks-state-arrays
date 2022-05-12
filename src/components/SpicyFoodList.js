@@ -4,9 +4,17 @@ import { spicyFoods, getNewSpicyFood } from "../data";
 function SpicyFoodList() {
   const [foods, setFoods] = useState(spicyFoods);
 
+  function handleLiClick(id){
+    const newFoodArray=foods.filter((food)=> food.id !==id);
+    [1,2,3].filter((number)=>number !==3)
+    setFoods(newFoodArray);
+  }
+
   function handleAddFood() {
     const newFood = getNewSpicyFood();
-    console.log(newFood);
+    const newFoodArray=[...foods, newFood];
+    setFoods(newFoodArray);
+    
   }
 
   const foodList = foods.map((food) => (
